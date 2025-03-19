@@ -1,27 +1,25 @@
-# Step 1: Create an empty list
-my_list = []
+def calculate_discount(price, discount_percent):
+    """
+    Calculates the final price after applying a discount.
 
-# Step 2: Append elements 10, 20, 30, 40
-my_list.append(10)
-my_list.append(20)
-my_list.append(30)
-my_list.append(40)
+    :param price: Original price of the item
+    :param discount_percent: Discount percentage
+    :return: Final price after applying discount if it's 20% or higher; otherwise, return original price
+    """
+    if discount_percent >= 20:
+        discount_amount = (discount_percent / 100) * price
+        final_price = price - discount_amount
+        return final_price
+    else:
+        return price
 
-# Step 3: Insert 15 at the second position (index 1)
-my_list.insert(1, 15)
 
-# Step 4: Extend my_list with [50, 60, 70]
-my_list.extend([50, 60, 70])
+# Prompt user for input
+price = float(input("Enter the original price of the item: "))
+discount_percent = float(input("Enter the discount percentage: "))
 
-# Step 5: Remove the last element
-my_list.pop()
+# Calculate final price
+final_price = calculate_discount(price, discount_percent)
 
-# Step 6: Sort the list in ascending order
-my_list.sort()
-
-# Step 7: Find the index of value 30 and print it
-index_of_30 = my_list.index(30)
-print("Index of 30:", index_of_30)
-
-# Print the final list
-print("Final list:", my_list)
+# Display the result
+print(f"Final price after discount: ${final_price:.2f}")
